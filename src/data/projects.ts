@@ -29,7 +29,7 @@ export const projects: PortfolioProject[] = [
     image: "/projects/penta-k-homepage.png",
     liveUrl: "https://penta-k.com/en",
     behanceUrl: "https://www.behance.net/gallery/253954651/PENTA-K-Digital-Product-Studio-UIUX-Case-Study",
-    roles: [],
+    roles: ["UI/UX Design", "Front-End Development"],
     featured: true,
   },
   {

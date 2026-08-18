@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Reveal } from "@/components/animation/Reveal";
 import { DisciplineColumn, type Discipline } from "@/components/expertise/DisciplineColumn";
+import { ExpertiseIntro } from "@/components/expertise/ExpertiseIntro";
 import { ExpertiseWorkflow } from "@/components/expertise/ExpertiseWorkflow";
 import { skillGroups } from "@/data/skills";
 
@@ -44,17 +45,7 @@ export function Expertise() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.08}>
-          <div className="mt-10 max-w-4xl sm:mt-12">
-            <h2 className="font-display text-[clamp(2.65rem,5.3vw,5rem)] font-semibold leading-[0.98] tracking-[-0.045em]">
-              <span className="block">Design thinking.</span>
-              <span className="block">Production <em className="not-italic text-[#818cf8]">code.</em></span>
-            </h2>
-            <p className="mt-7 max-w-2xl text-base leading-7 text-[var(--text-secondary)] sm:text-lg">
-              I shape the interface, build the frontend and carry the same intent through to the finished product.
-            </p>
-          </div>
-        </Reveal>
+        <ExpertiseIntro />
 
         <div className="expertise-columns mt-16" data-active={active ?? "none"}>
           <DisciplineColumn

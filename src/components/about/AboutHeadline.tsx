@@ -1,8 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
-const headline = ["I design it.", "I build it.", "I ship it."] as const;
-
 export function AboutHeadline() {
   const reduced = useReducedMotion();
 
@@ -24,17 +22,17 @@ export function AboutHeadline() {
 
   return (
     <motion.h2
-      className="font-display min-w-0 text-[clamp(2.75rem,5.4vw,5.6rem)] font-semibold leading-[0.98] tracking-[-0.045em]"
+      className="font-display min-w-0 text-[clamp(2.55rem,4.6vw,4.65rem)] font-semibold leading-[1.01] tracking-[-0.045em]"
       variants={container}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
     >
-      {headline.map((text, index) => (
-        <motion.span key={text} variants={line} className={`block ${index === 1 ? "text-[#818cf8]" : ""}`}>
-          {text}
-        </motion.span>
-      ))}
+      <motion.span variants={line} className="block">I care about the</motion.span>
+      <motion.span variants={line} className="block">
+        <em className="not-italic text-[#818cf8]">details</em> between
+      </motion.span>
+      <motion.span variants={line} className="block">idea and execution.</motion.span>
     </motion.h2>
   );
 }
