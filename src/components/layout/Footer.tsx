@@ -1,7 +1,7 @@
-import { ArrowUpRight } from "lucide-react";
 import { personal } from "@/data/personal";
 import { socialLinks } from "@/data/social";
 import { Reveal } from "@/components/animation/Reveal";
+import { SocialIcon } from "@/components/social/SocialIcon";
 
 /** Minimal footer — identity, real links, dynamic year. */
 export function Footer() {
@@ -31,13 +31,10 @@ export function Footer() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group link-underline inline-flex items-center gap-1.5 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                      className="social-icon-link group inline-flex items-center justify-center"
                     >
-                      {link.label}
-                      <ArrowUpRight
-                        size={13}
-                        className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                      />
+                      <SocialIcon id={link.id} />
+                      <span className="sr-only">{link.label}</span>
                     </a>
                   </li>
                 ))}

@@ -5,6 +5,7 @@
  */
 
 export type ProjectRole = "UI/UX Design" | "Front-End Development";
+export type ProjectCategory = "UI/UX Design" | "Front-End Dev" | "Full Stack";
 
 export interface PortfolioProject {
   id: string;
@@ -13,6 +14,7 @@ export interface PortfolioProject {
   summary?: string;
   description?: string;
   roles?: ProjectRole[];
+  tags?: ProjectCategory[];
   technologies?: string[];
   categories?: string[];
   image: string;

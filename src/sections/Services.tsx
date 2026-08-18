@@ -15,12 +15,13 @@ export function Services() {
   if (!services.length) return null;
 
   return (
-    <section id="services" className="section-y relative">
+    <section id="services" className="services-section section-y relative">
       <div className="container-x">
         <SectionHeader
           index="06"
           label="Services"
           title="How I help build better digital products."
+          align="center"
           description="From early product thinking to production-ready frontend — design, development and the details connecting both."
         />
 

@@ -4,6 +4,7 @@ import { Magnetic } from "@/components/animation/Magnetic";
 import { TypewriterTitle } from "./TypewriterTitle";
 import { personal } from "@/data/personal";
 import { socialLinks } from "@/data/social";
+import { SocialIcon } from "@/components/social/SocialIcon";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -66,7 +67,7 @@ export function HeroContent() {
         transition={{ duration: 0.7, delay: 0.72 }}
         className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3"
       >
-        <ul className="flex flex-wrap items-center gap-x-6 gap-y-2" aria-label="Social profiles">
+        <ul className="hero-social-icons flex flex-wrap items-center gap-2" aria-label="Social profiles">
           {socialLinks.map((link) => (
             <li key={link.id}>
               <a
@@ -74,9 +75,10 @@ export function HeroContent() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Open ${link.label} profile`}
-                className="hero-social-link"
+                className="hero-social-icon"
               >
-                {link.label}
+                <SocialIcon id={link.id} />
+                <span className="sr-only">{link.label}</span>
               </a>
             </li>
           ))}

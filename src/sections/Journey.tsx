@@ -28,7 +28,7 @@ export function Education() {
   if (!education.length) return null;
 
   return (
-    <section id="education" className="section-y relative pt-0">
+    <section id="education" className="education-section section-y relative pt-0">
       <div className="container-x">
         <SectionHeader
           index="05"

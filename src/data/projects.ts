@@ -17,6 +17,7 @@ export const projects: PortfolioProject[] = [
     liveUrl: "https://eltamalawy.penta-k.com/",
     behanceUrl: "https://www.behance.net/gallery/254001581/ElTamalawy-UIUX-Frontend-Case-Study",
     roles: ["UI/UX Design", "Front-End Development"],
+    tags: ["UI/UX Design", "Front-End Dev"],
     featured: true,
   },
   {
@@ -30,6 +31,7 @@ export const projects: PortfolioProject[] = [
     liveUrl: "https://penta-k.com/en",
     behanceUrl: "https://www.behance.net/gallery/253954651/PENTA-K-Digital-Product-Studio-UIUX-Case-Study",
     roles: ["UI/UX Design", "Front-End Development"],
+    tags: ["UI/UX Design", "Front-End Dev"],
     featured: true,
   },
   {
@@ -42,6 +44,7 @@ export const projects: PortfolioProject[] = [
     liveUrl: "https://call-99.penta-k.com/login",
     behanceUrl: "https://www.behance.net/gallery/253200123/CALL99-Automotive-Services-UIUX",
     roles: ["UI/UX Design", "Front-End Development"],
+    tags: ["UI/UX Design", "Front-End Dev"],
     featured: true,
   },
   {
@@ -54,6 +57,7 @@ export const projects: PortfolioProject[] = [
     image: "/projects/exmpex-academy.png",
     liveUrl: "https://exmpex-academy.vercel.app/",
     roles: [],
+    tags: ["Front-End Dev"],
     featured: true,
   },
   {
@@ -66,6 +70,7 @@ export const projects: PortfolioProject[] = [
     image: "/projects/one-smash.png",
     liveUrl: "https://one-smash.vercel.app/",
     roles: [],
+    tags: ["Front-End Dev"],
     featured: true,
   },
   {
@@ -78,6 +83,7 @@ export const projects: PortfolioProject[] = [
     image: "/projects/movie-app.png",
     liveUrl: "https://aymanghomim.github.io/Movie-App/",
     roles: [],
+    tags: ["Front-End Dev"],
     featured: true,
   },
   {
@@ -90,6 +96,7 @@ export const projects: PortfolioProject[] = [
     image: "/projects/bakery-website.png",
     liveUrl: "https://bakery-website-lovat.vercel.app/",
     roles: [],
+    tags: ["Front-End Dev"],
     featured: true,
   },
   {
@@ -102,6 +109,7 @@ export const projects: PortfolioProject[] = [
     image: "/projects/ecommerce-website.png",
     liveUrl: "https://bakery-website-lovat.vercel.app/",
     roles: [],
+    tags: ["Front-End Dev"],
   },
   {
     id: "car-shop",
@@ -113,6 +121,7 @@ export const projects: PortfolioProject[] = [
     image: "/projects/car-shop.png",
     liveUrl: "https://aymanghomim.github.io/Car-Shop/",
     roles: [],
+    tags: ["Front-End Dev"],
   },
   {
     id: "phalastine-website",
@@ -123,6 +132,7 @@ export const projects: PortfolioProject[] = [
     image: "/projects/phalastine-website.png",
     liveUrl: "https://aymanghomim.github.io/Phalastine/",
     roles: [],
+    tags: ["Front-End Dev"],
   },
   {
     id: "al-thawra-website",
@@ -133,5 +143,6 @@ export const projects: PortfolioProject[] = [
     image: "/projects/al-thawra-website.png",
     liveUrl: "https://aymanghomim.github.io/Al-Thawra-Luxury-Motocycles/",
     roles: [],
+    tags: ["Front-End Dev"],
   },
 ];

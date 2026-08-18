@@ -17,6 +17,12 @@ export const socialLinks: SocialLink[] = [
     handle: "aymanghonim2004",
   },
   {
+    id: "behance",
+    label: "Behance",
+    url: "https://www.behance.net/aymangonim",
+    handle: "aymangonim",
+  },
+  {
     id: "whatsapp",
     label: "WhatsApp",
     url: "https://wa.me/+201121476035",

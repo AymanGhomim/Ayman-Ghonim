@@ -5,6 +5,7 @@ import { socialLinks } from "@/data/social";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/animation/Reveal";
 import { Magnetic } from "@/components/animation/Magnetic";
+import { SocialIcon } from "@/components/social/SocialIcon";
 
 type FormStatus = "idle" | "sending" | "sent" | "error";
 
@@ -98,10 +99,11 @@ export function Contact() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group link-underline inline-flex items-center gap-1.5 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                      className="social-icon-link group inline-flex items-center justify-center"
+                      aria-label={`Open ${link.label} profile`}
                     >
-                      {link.label}
-                      <ArrowUpRight size={13} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      <SocialIcon id={link.id} />
+                      <span className="sr-only">{link.label}</span>
                     </a>
                   </li>
                 ))}
