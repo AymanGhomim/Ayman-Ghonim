@@ -1,73 +1,108 @@
-# React + TypeScript + Vite
+# Ayman Ghonim — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio for **Ayman Ghonim**, a UI/UX Designer and Front-End Developer based in Cairo, Egypt.
 
-Currently, two official plugins are available:
+The site presents the work, capabilities and working approach behind each product — from early interface thinking to polished, production-ready frontend experiences.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Highlights
 
-## React Compiler
+- Editorial dark-theme portfolio with responsive layouts.
+- Interactive hero with a draggable 3D project screen.
+- 3D project previews with mouse drag, keyboard arrows and accessible focus states.
+- Client-focused Services index with progressive hover previews.
+- Process workflow organized as **Understand → Shape → Build**.
+- Structured Education archive and editorial Experience section.
+- Live product links and Behance case studies for selected work.
+- Formspree-powered contact form with direct contact channels.
+- Reduced-motion support for visitors who prefer minimal animation.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Selected work
 
-## Expanding the ESLint configuration
+- **Eltamalawy** — Arabic e-learning platform; UI/UX design and front-end development.
+- **PENTA-K Portfolio** — digital product studio website.
+- **CALL99 Automotive Services** — multi-role platform for Admin, Customer Service, User, Provider and Ground Team experiences.
+- Exmpex Academy, One Smash, Movie App, Bakery Website and other front-end projects.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Project content, images and links are maintained in `src/data/projects.ts`.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- React 19 and TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Lenis for smooth scrolling
+- Lucide React icons
+- Formspree for contact form delivery
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting started
+
+### Requirements
+
+- Node.js 18 or newer
+- npm
+
+### Install and run locally
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The development server runs at `http://localhost:3000`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Production build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
+npm run preview
 ```
+
+Vite generates the production output in `dist`. The included `vercel.json` configures Vercel to use that directory automatically.
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Project structure
+
+```text
+src/
+├── components/       Reusable UI, animation and section components
+├── data/              Portfolio content and personal information
+├── hooks/             Shared React hooks
+├── sections/          Main portfolio sections
+├── types/             Shared TypeScript data models
+└── index.css          Global theme, responsive styles and motion details
+
+public/
+├── projects/          Project preview images
+├── cv/                Ayman's CV
+└── ...                Static portfolio assets
+```
+
+## Content updates
+
+Most portfolio content is data-driven. Update the relevant file in `src/data/`:
+
+- `projects.ts` — projects, roles, links and images.
+- `experience.ts` — work history.
+- `education.ts` — university and training history.
+- `services.ts` — client-focused offerings and process stages.
+- `personal.ts` — contact details, summary and CV path.
+- `social.ts` — verified social profiles.
+
+Keep images inside `public/` and reference them with root-relative paths such as `/projects/project-name.png`.
+
+## Contact
+
+- Email: [aghonim133@gmail.com](mailto:aghonim133@gmail.com)
+- LinkedIn: [aymanghonim200](https://www.linkedin.com/in/aymanghonim200/)
+- GitHub: [AymanGhomim](https://github.com/AymanGhomim)
+- Location: Cairo, Egypt
+
+## License
+
+This repository contains Ayman Ghonim's personal portfolio and project assets. Please contact Ayman before reusing personal content, images or case-study material.
