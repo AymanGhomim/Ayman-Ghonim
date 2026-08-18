@@ -33,7 +33,7 @@ export function DisciplineColumn({
         onBlur={() => onActivate(null)}
       >
         <p className="label-mono flex items-center gap-3">
-          <span className="text-[#818cf8]">{index}</span>
+          <span className="text-[#60a5fa]">{index}</span>
           <span>/</span>
           <span>{label}</span>
         </p>

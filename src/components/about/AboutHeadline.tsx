@@ -30,7 +30,7 @@ export function AboutHeadline() {
     >
       <motion.span variants={line} className="block">I care about the</motion.span>
       <motion.span variants={line} className="block">
-        <em className="not-italic text-[#818cf8]">details</em> between
+        <em className="not-italic text-[#60a5fa]">details</em> between
       </motion.span>
       <motion.span variants={line} className="block">idea and execution.</motion.span>
     </motion.h2>

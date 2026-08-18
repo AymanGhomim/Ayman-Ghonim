@@ -39,7 +39,7 @@ export function Expertise() {
       <div className="container-x relative z-10">
         <Reveal>
           <p className="label-mono flex items-center gap-3">
-            <span className="text-[#818cf8]">02</span>
+            <span className="text-[#60a5fa]">02</span>
             <span aria-hidden className="h-px w-10 bg-[var(--border-hover)]" />
             <span>Expertise</span>
           </p>

@@ -22,9 +22,4 @@ export const socialLinks: SocialLink[] = [
     url: "https://wa.me/+201121476035",
     handle: "+20 112 147 6035",
   },
-  {
-    id: "facebook",
-    label: "Facebook",
-    url: "https://www.facebook.com/share/1BH5vFXdUN/",
-  },
 ];

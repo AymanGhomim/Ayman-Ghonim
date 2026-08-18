@@ -13,7 +13,7 @@ export function About() {
       <div className="container-x relative z-10">
         <Reveal>
           <p className="label-mono flex items-center gap-3">
-            <span className="text-[#818cf8]">01</span>
+            <span className="text-[#60a5fa]">01</span>
             <span aria-hidden className="h-px w-10 bg-[var(--border-hover)]" />
             <span>About</span>
           </p>
@@ -26,7 +26,7 @@ export function About() {
             <Reveal delay={0.12}>
               <p className="font-display max-w-2xl text-[clamp(1.45rem,2.6vw,2.45rem)] font-medium leading-[1.18] tracking-[-0.025em] text-[var(--text-primary)]">
                 I care about clarity, consistency and the small details that make digital products feel{" "}
-                <span className="text-[#818cf8]">complete.</span>
+                <span className="text-[#60a5fa]">complete.</span>
               </p>
             </Reveal>
 

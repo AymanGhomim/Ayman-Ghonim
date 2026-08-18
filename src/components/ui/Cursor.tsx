@@ -55,7 +55,7 @@ export function Cursor() {
           backgroundColor: label
             ? "rgba(247,247,248,0.96)"
             : hovering
-              ? "rgba(139,92,246,0.15)"
+              ? "rgba(37,99,235,0.15)"
               : "rgba(247,247,248,0.9)",
         }}
         transition={{ type: "spring", stiffness: 400, damping: 28 }}

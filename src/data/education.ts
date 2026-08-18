@@ -27,6 +27,7 @@ export const education: EducationItem[] = [
       "Git & GitHub, Agile/Scrum methodology, clean coding standards",
       "Team collaboration, technical communication and presentation skills",
     ],
+    topics: ["React.js", "State Management", "REST APIs", "Modern JavaScript"],
   },
   {
     id: "creativa-uiux",
@@ -35,6 +36,7 @@ export const education: EducationItem[] = [
     period: "2025",
     description:
       "Intensive UI/UX training covering user research, design thinking, wireframing, prototyping, visual design and usability testing, with hands-on projects using Figma.",
+    topics: ["User Research", "Wireframing", "Prototyping", "Figma"],
   },
   {
     id: "iti-summer",
@@ -43,6 +45,7 @@ export const education: EducationItem[] = [
     period: "2025 — 2026",
     description:
       "Built dynamic, responsive web interfaces using React, JavaScript (ES6+), HTML and CSS. The training emphasized real-world projects, clean code architecture, and applying UI/UX principles to create engaging user experiences.",
+    topics: ["React", "JavaScript (ES6+)", "HTML", "CSS"],
   },
   {
     id: "itc-mansoura",
@@ -51,6 +54,7 @@ export const education: EducationItem[] = [
     period: "2024 — 2025",
     description:
       "Practical experience building responsive, interactive web applications with React, JavaScript (ES6+), HTML and CSS — applying modern design principles, optimizing performance and writing clean, reusable components for scalable applications.",
+    topics: ["React", "JavaScript (ES6+)", "HTML", "CSS"],
   },
   {
     id: "elzero",
@@ -59,6 +63,7 @@ export const education: EducationItem[] = [
     period: "2023 — 2024",
     description:
       "Strong foundation in modern front-end development using React and JavaScript (ES6+) best practices — building responsive, component-driven web applications with clean, scalable code.",
+    topics: ["React", "JavaScript (ES6+)", "Responsive Design"],
   },
   {
     id: "engineers-syndicate",

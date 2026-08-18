@@ -21,7 +21,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "penta-k",
-    title: "PENTA-K Digital Product Studio",
+    title: "PENTA-K Portfolio",
     categories: ["Corporate Website", "Digital Product Studio"],
     technologies: ["Next.js", "React"],
     description:
@@ -29,6 +29,18 @@ export const projects: PortfolioProject[] = [
     image: "/projects/penta-k-homepage.png",
     liveUrl: "https://penta-k.com/en",
     behanceUrl: "https://www.behance.net/gallery/253954651/PENTA-K-Digital-Product-Studio-UIUX-Case-Study",
+    roles: ["UI/UX Design", "Front-End Development"],
+    featured: true,
+  },
+  {
+    id: "call99",
+    title: "CALL99 Automotive Services",
+    categories: ["Management System", "Automotive Services"],
+    description:
+      "A multi-role automotive services platform for admins, customer service teams, users, providers and ground teams. I designed the complete experience across all roles and developed the front-end interfaces for the Admin, Customer Service and Ground Team portals.",
+    image: "/projects/call99.png",
+    liveUrl: "https://call-99.penta-k.com/login",
+    behanceUrl: "https://www.behance.net/gallery/253200123/CALL99-Automotive-Services-UIUX",
     roles: ["UI/UX Design", "Front-End Development"],
     featured: true,
   },

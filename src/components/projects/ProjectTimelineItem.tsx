@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
+import { ProjectVisual3D } from "@/components/projects/ProjectVisual3D";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import type { PortfolioProject } from "@/types/portfolio";
 
@@ -13,28 +14,6 @@ export function ProjectTimelineItem({ project, index, priority }: ProjectTimelin
   const reducedMotion = useReducedMotion();
   const isLeft = index % 2 === 0;
   const projectNumber = String(index + 1).padStart(2, "0");
-  const visualUrl = project.liveUrl ?? project.behanceUrl;
-
-  const visual = (
-    <motion.div
-      className="project-showcase-visual"
-      whileHover={
-        reducedMotion
-          ? undefined
-          : { scale: 1.015, y: -4, rotateX: isLeft ? 0.8 : -0.8, rotateY: isLeft ? 1.2 : -1.2 }
-      }
-      transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
-      data-cursor={visualUrl ? "VIEW" : undefined}
-    >
-      <img
-        src={project.image}
-        alt={`${project.title} — project screenshot`}
-        loading={priority ? "eager" : "lazy"}
-        draggable={false}
-        className={project.id === "eltamalawy" ? "object-top" : "object-center"}
-      />
-    </motion.div>
-  );
 
   return (
     <div className={`project-timeline-row ${isLeft ? "is-left" : "is-right"}`}>
@@ -52,17 +31,11 @@ export function ProjectTimelineItem({ project, index, priority }: ProjectTimelin
           )}
         </div>
 
-        {visualUrl ? (
-          <a
-            href={visualUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block"
-            aria-label={`Open ${project.title} project`}
-          >
-            {visual}
-          </a>
-        ) : visual}
+        <ProjectVisual3D
+          project={project}
+          priority={priority}
+          initialDirection={isLeft ? -1 : 1}
+        />
 
         <div className="project-showcase-content">
           <h3>{project.title}</h3>
@@ -107,10 +80,10 @@ export function ProjectTimelineItem({ project, index, priority }: ProjectTimelin
         initial={{ scale: 0.82, borderColor: "rgba(255,255,255,0.12)" }}
         whileInView={{
           scale: 1.08,
-          borderColor: "rgba(129,140,248,0.85)",
-          backgroundColor: "#11152a",
-          color: "#c7d2fe",
-          boxShadow: "0 0 0 7px rgba(7,10,16,0.86), 0 0 22px rgba(99,102,241,0.2)",
+          borderColor: "rgba(96,165,250,0.85)",
+          backgroundColor: "#0b1b36",
+          color: "#bfdbfe",
+          boxShadow: "0 0 0 7px rgba(7,10,16,0.86), 0 0 22px rgba(37,99,235,0.2)",
         }}
         viewport={{ once: false, amount: 0.65, margin: "-22% 0px -22% 0px" }}
         transition={{ duration: reducedMotion ? 0.15 : 0.45, ease: [0.16, 1, 0.3, 1] }}

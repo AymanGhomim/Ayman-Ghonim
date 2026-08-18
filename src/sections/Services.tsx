@@ -1,10 +1,17 @@
-import { ArrowRight } from "lucide-react";
-import { services, processSteps } from "@/data/services";
+import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { processStages, processSteps, services } from "@/data/services";
+import { ProcessRail } from "@/components/process/ProcessRail";
+import { ProcessStageItem } from "@/components/process/ProcessStageItem";
+import { ServicePreview } from "@/components/services/ServicePreview";
+import { ServiceRow } from "@/components/services/ServiceRow";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { Reveal, Stagger, StaggerItem } from "@/components/animation/Reveal";
+import { Reveal, Stagger } from "@/components/animation/Reveal";
 
 /** Services — full-width interactive rows, not cards. */
 export function Services() {
+  const [activeService, setActiveService] = useState<number | null>(null);
+
   if (!services.length) return null;
 
   return (
@@ -13,33 +20,34 @@ export function Services() {
         <SectionHeader
           index="06"
           label="Services"
-          title="What I can do for your product."
+          title="How I help build better digital products."
+          description="From early product thinking to production-ready frontend — design, development and the details connecting both."
         />
 
-        <div className="mt-16">
-          <Stagger stagger={0.07}>
-            {services.map((service, i) => (
-              <StaggerItem key={service.id} y={18}>
-                <div className="service-row group">
-                  <span className="label-mono !text-[var(--text-muted)]">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="service-title font-display text-xl font-semibold tracking-tight sm:text-2xl">
-                      {service.title}
-                    </h3>
-                    {service.description && (
-                      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--text-secondary)]">
-                        {service.description}
-                      </p>
-                    )}
-                  </div>
-                  <ArrowRight className="service-arrow hidden sm:block" size={22} aria-hidden />
-                </div>
-              </StaggerItem>
+        <div className="services-index-layout">
+          <Stagger className="services-index" stagger={0.055}>
+            {services.map((service, index) => (
+              <ServiceRow
+                key={service.id}
+                service={service}
+                index={index}
+                active={activeService === index}
+                onActivate={() => setActiveService(index)}
+                onDeactivate={() => setActiveService(null)}
+              />
             ))}
           </Stagger>
+
+          <ServicePreview service={activeService === null ? null : services[activeService]} />
         </div>
+
+        <Reveal className="services-cta" y={14}>
+          <p>Have a product in mind?</p>
+          <a href="#contact" aria-label="Go to contact section to discuss your product">
+            <span>Let’s build it together.</span>
+            <ArrowUpRight aria-hidden />
+          </a>
+        </Reveal>
       </div>
     </section>
   );
@@ -47,7 +55,16 @@ export function Services() {
 
 /** Process — generic design→code working method. */
 export function Process() {
-  if (!processSteps.length) return null;
+  const [activeStage, setActiveStage] = useState<number | null>(null);
+
+  if (!processStages.length) return null;
+
+  const stages = processStages.map((stage) => ({
+    ...stage,
+    steps: stage.stepIds
+      .map((stepId) => processSteps.find((step) => step.id === stepId))
+      .filter((step): step is (typeof processSteps)[number] => Boolean(step)),
+  }));
 
   return (
     <section id="process" className="section-y relative pt-0">
@@ -56,24 +73,30 @@ export function Process() {
           index="07"
           label="Process"
           title="From idea to interface to code."
+          description="A focused workflow that keeps product thinking, interface design and frontend development aligned."
         />
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--border)] sm:grid-cols-2 lg:grid-cols-3">
-          {processSteps.map((step, i) => (
-            <Reveal key={step.id} delay={i * 0.05} y={16}>
-              <div className="flex h-full flex-col gap-4 bg-[var(--bg-soft)] p-8 transition-colors duration-300 hover:bg-[var(--surface-hover)]">
-                <span className="font-mono text-sm text-gradient">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-display text-lg font-semibold tracking-tight">
-                  {step.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-                  {step.description}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="process-workflow" onMouseLeave={() => setActiveStage(null)}>
+          <Stagger
+            className={`process-stages${activeStage === null ? "" : " has-active"}`}
+            stagger={0.09}
+          >
+            {stages.map((stage, index) => (
+              <ProcessStageItem
+                key={stage.id}
+                stage={stage}
+                index={index}
+                active={activeStage === index}
+                onActivate={() => setActiveStage(index)}
+                onDeactivate={() => setActiveStage(null)}
+              />
+            ))}
+          </Stagger>
+
+          <ProcessRail
+            labels={stages.map((stage) => stage.railLabel)}
+            activeIndex={activeStage}
+          />
         </div>
       </div>
     </section>

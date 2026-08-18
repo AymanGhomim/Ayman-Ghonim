@@ -35,6 +35,8 @@ export interface ExperienceItem {
   id: string;
   company: string;
   role: string;
+  employmentType?: string;
+  location?: string;
   startDate?: string;
   endDate?: string;
   period?: string;
@@ -49,6 +51,7 @@ export interface EducationItem {
   period?: string;
   description?: string;
   details?: string[];
+  topics?: string[];
 }
 
 export interface SkillGroup {
@@ -62,6 +65,8 @@ export interface ServiceItem {
   id: string;
   title: string;
   description?: string;
+  details?: string[];
+  preview?: "design" | "development" | "design-code" | "integration" | "refinement";
 }
 
 export interface SocialLink {
@@ -75,4 +80,12 @@ export interface ProcessStep {
   id: string;
   title: string;
   description: string;
+}
+
+export interface ProcessStage {
+  id: string;
+  title: string;
+  stepIds: string[];
+  statement: string;
+  railLabel: string;
 }

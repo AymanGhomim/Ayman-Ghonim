@@ -41,7 +41,7 @@ export function Contact() {
     <section id="contact" className="section-y relative overflow-hidden">
       <div
         className="glow-spot left-1/2 top-0 h-[380px] w-[680px] -translate-x-1/2"
-        style={{ background: "rgba(139,92,246,0.09)" }}
+        style={{ background: "rgba(37,99,235,0.09)" }}
       />
       <div className="container-x relative z-10">
         <SectionHeader index="08" label="Contact" title="Have an idea? Let’s design it — then build it." />
