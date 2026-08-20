@@ -82,11 +82,17 @@ export function Navbar() {
             <button
               type="button"
               onClick={toggleLanguage}
-              className="btn-ghost inline-flex items-center gap-2 !px-4 !py-2.5 text-sm"
-              aria-label="Translate website to Arabic"
+              className="language-switch"
+              aria-label={language === "ar" ? "Switch to English" : "Switch to Arabic"}
             >
-              <Languages size={15} />
-              {language === "ar" ? "English" : "عربي"}
+              <span className="language-switch-icon" aria-hidden>
+                <Languages size={14} />
+              </span>
+              <span className="language-switch-options" aria-hidden>
+                <span className={language === "en" ? "is-active" : ""}>EN</span>
+                <span className="language-switch-divider">/</span>
+                <span className={language === "ar" ? "is-active" : ""}>AR</span>
+              </span>
             </button>
             <Magnetic strength={0.2}>
               <a href="#contact" className="btn-ghost !px-5 !py-2.5 text-sm">
@@ -153,10 +159,17 @@ export function Navbar() {
                 toggleLanguage();
                 setOpen(false);
               }}
-              className="btn-ghost mt-6 inline-flex w-fit items-center gap-2 !px-5 !py-3"
+              className="language-switch mt-6"
+              aria-label={language === "ar" ? "Switch to English" : "Switch to Arabic"}
             >
-              <Languages size={16} />
-              {language === "ar" ? "Switch to English" : "ترجمة الموقع للعربية"}
+              <span className="language-switch-icon" aria-hidden>
+                <Languages size={15} />
+              </span>
+              <span className="language-switch-options" aria-hidden>
+                <span className={language === "en" ? "is-active" : ""}>EN</span>
+                <span className="language-switch-divider">/</span>
+                <span className={language === "ar" ? "is-active" : ""}>AR</span>
+              </span>
             </button>
           </motion.div>
         )}
