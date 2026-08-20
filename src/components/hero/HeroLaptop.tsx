@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import { DragIndicator } from "./DragIndicator";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
@@ -13,14 +13,35 @@ type DragOrigin = {
   rotateY: number;
 };
 
+type LaptopPhase = "assembling" | "assembled" | "disassembling";
+
 export function HeroLaptop() {
   const reducedMotion = useReducedMotion();
   const [dragging, setDragging] = useState(false);
+  const [phase, setPhase] = useState<LaptopPhase>("assembling");
   const origin = useRef<DragOrigin | null>(null);
   const rawRotateX = useMotionValue(-5);
   const rawRotateY = useMotionValue(-8);
   const rotateX = useSpring(rawRotateX, { stiffness: 150, damping: 22, mass: 0.55 });
   const rotateY = useSpring(rawRotateY, { stiffness: 150, damping: 22, mass: 0.55 });
+
+  useEffect(() => {
+    if (reducedMotion) {
+      setPhase("assembled");
+      return;
+    }
+
+    const introTimer = window.setTimeout(() => setPhase("assembled"), 1500);
+    const cycleTimer = window.setInterval(() => {
+      setPhase("disassembling");
+      window.setTimeout(() => setPhase("assembled"), 1050);
+    }, 7600);
+
+    return () => {
+      window.clearTimeout(introTimer);
+      window.clearInterval(cycleTimer);
+    };
+  }, [reducedMotion]);
 
   const startDrag = (event: PointerEvent<HTMLDivElement>) => {
     event.currentTarget.setPointerCapture(event.pointerId);
@@ -69,6 +90,24 @@ export function HeroLaptop() {
       className="hero-laptop-wrap relative z-10"
     >
       <div className="hero-orbit" aria-hidden />
+      <motion.span
+        className="hero-laptop-fragment hero-laptop-fragment-one"
+        aria-hidden
+        animate={phase === "disassembling" ? { opacity: 0.85, x: -34, y: -26, rotate: -18 } : { opacity: 0, x: 0, y: 0, rotate: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      />
+      <motion.span
+        className="hero-laptop-fragment hero-laptop-fragment-two"
+        aria-hidden
+        animate={phase === "disassembling" ? { opacity: 0.72, x: 38, y: -18, rotate: 16 } : { opacity: 0, x: 0, y: 0, rotate: 0 }}
+        transition={{ duration: 0.9, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+      />
+      <motion.span
+        className="hero-laptop-fragment hero-laptop-fragment-three"
+        aria-hidden
+        animate={phase === "disassembling" ? { opacity: 0.62, x: 24, y: 38, rotate: -12 } : { opacity: 0, x: 0, y: 0, rotate: 0 }}
+        transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+      />
       <motion.div
         animate={
           reducedMotion || dragging
@@ -83,6 +122,14 @@ export function HeroLaptop() {
       >
         <motion.div
           className="hero-laptop-3d"
+          animate={
+            phase === "assembling"
+              ? { opacity: 0, scale: 0.78, y: 26, rotateZ: -8 }
+              : phase === "disassembling"
+                ? { opacity: 0.94, scale: 0.97, y: -4, rotateZ: -2 }
+                : { opacity: 1, scale: 1, y: 0, rotateZ: 0 }
+          }
+          transition={{ duration: phase === "assembling" ? 1.1 : 0.85, ease: [0.16, 1, 0.3, 1] }}
           style={{ rotateX, rotateY, transformPerspective: 1200 }}
           data-dragging={dragging}
           data-cursor="DRAG"
@@ -95,17 +142,25 @@ export function HeroLaptop() {
           onPointerCancel={stopDrag}
           onKeyDown={rotateWithKeyboard}
         >
-          <div className="hero-laptop-display">
+          <motion.div
+            className="hero-laptop-display"
+            animate={phase === "disassembling" ? { x: -7, y: -7, rotateZ: -1.5 } : { x: 0, y: 0, rotateZ: 0 }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+          >
             <span className="hero-laptop-camera" aria-hidden />
-            <div className="hero-laptop-screen">
+            <motion.div
+              className="hero-laptop-screen"
+              animate={phase === "disassembling" ? { x: 10, y: 8, scale: 0.95, rotateZ: 1.5 } : { x: 0, y: 0, scale: 1, rotateZ: 0 }}
+              transition={{ duration: 0.85, delay: 0.04, ease: [0.16, 1, 0.3, 1] }}
+            >
               <img
                 src="/projects/eltamalawy-fullscreen.png"
                 alt="Eltamalawy learning platform homepage"
                 draggable={false}
               />
-            </div>
+            </motion.div>
             <span className="hero-laptop-brand" aria-hidden>AG</span>
-          </div>
+          </motion.div>
         </motion.div>
       </motion.div>
       <DragIndicator />

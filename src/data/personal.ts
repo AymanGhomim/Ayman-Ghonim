@@ -6,7 +6,7 @@ export const personal = {
   firstName: "Ayman",
   lastName: "Ghonim",
   initials: "AG",
-  title: "UI/UX Designer × Front-End Developer",
+  title: "Front-End Developer × UI/UX Designer",
   tagline: "I design digital experiences and bring them to life with code.",
   heroIntro:
     "I’m Ayman Ghonim — I work at the intersection of design and development, turning ideas into polished, responsive products with React, Next.js and a strong UI/UX mindset.",
@@ -18,7 +18,7 @@ export const personal = {
     "Junior Frontend Developer specializing in React.js with hands-on experience building responsive and user-friendly web applications. Strong knowledge of JavaScript (ES6+), component-based architecture, and API integration. Passionate about applying UI/UX principles to deliver clean, efficient, and visually appealing interfaces.",
   location: "Cairo, Egypt",
   email: "aghonim133@gmail.com",
-  phones: ["+20 112 147 6035", "+20 122 860 0736"],
+  phones: ["+20 122 860 0736"],
   languages: [
     { name: "Arabic", level: "Native" },
     { name: "English", level: "Very Good" },

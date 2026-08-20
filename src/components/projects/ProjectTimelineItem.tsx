@@ -61,6 +61,11 @@ export function ProjectTimelineItem({ project, index, priority }: ProjectTimelin
                 View Case Study <ArrowUpRight size={14} />
               </a>
             )}
+            {project.secondaryBehanceUrl && (
+              <a href={project.secondaryBehanceUrl} target="_blank" rel="noopener noreferrer">
+                {project.secondaryBehanceLabel ?? "View Web Case Study"} <ArrowUpRight size={14} />
+              </a>
+            )}
             {project.githubUrl && (
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                 <Github size={14} /> Source

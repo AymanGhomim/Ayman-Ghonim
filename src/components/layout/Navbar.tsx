@@ -1,8 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Languages, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { personal } from "@/data/personal";
 import { Magnetic } from "@/components/animation/Magnetic";
+import { applyLocalLanguage, type SiteLanguage } from "@/i18n/localTranslation";
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
@@ -16,6 +17,13 @@ const NAV_ITEMS = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [language, setLanguage] = useState<SiteLanguage>("en");
+
+  const toggleLanguage = () => {
+    const nextLanguage: SiteLanguage = language === "ar" ? "en" : "ar";
+    setLanguage(nextLanguage);
+    applyLocalLanguage(nextLanguage);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -70,7 +78,16 @@ export function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden md:block">
+          <div className="hidden items-center gap-3 md:flex">
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              className="btn-ghost inline-flex items-center gap-2 !px-4 !py-2.5 text-sm"
+              aria-label="Translate website to Arabic"
+            >
+              <Languages size={15} />
+              {language === "ar" ? "English" : "عربي"}
+            </button>
             <Magnetic strength={0.2}>
               <a href="#contact" className="btn-ghost !px-5 !py-2.5 text-sm">
                 Let’s Talk
@@ -130,6 +147,17 @@ export function Navbar() {
             >
               {personal.title}
             </motion.p>
+            <button
+              type="button"
+              onClick={() => {
+                toggleLanguage();
+                setOpen(false);
+              }}
+              className="btn-ghost mt-6 inline-flex w-fit items-center gap-2 !px-5 !py-3"
+            >
+              <Languages size={16} />
+              {language === "ar" ? "Switch to English" : "ترجمة الموقع للعربية"}
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

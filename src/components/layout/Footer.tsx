@@ -17,9 +17,9 @@ export function Footer() {
                 {personal.name}
               </p>
               <p className="label-mono mt-4 leading-loose">
-                UI/UX Designer
-                <span className="text-gradient mx-2">×</span>
                 Front-End Developer
+                <span className="text-gradient mx-2">×</span>
+                UI/UX Designer
               </p>
             </div>
 

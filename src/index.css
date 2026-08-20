@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* ------------------------------------------------------------------ */
 /* Design Tokens — DESIGN × CODE                                       */
 /* ------------------------------------------------------------------ */
@@ -426,6 +427,23 @@ button {
   background: #60a5fa;
   box-shadow: 0 0 14px rgba(96, 165, 250, 0.55);
 }
+.hero-laptop-fragment {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: clamp(1.4rem, 3vw, 2.3rem);
+  height: clamp(0.42rem, 0.8vw, 0.62rem);
+  border: 1px solid rgba(147, 197, 253, 0.5);
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(37, 99, 235, 0.12), rgba(147, 197, 253, 0.7));
+  box-shadow: 0 0 18px rgba(37, 99, 235, 0.22);
+  pointer-events: none;
+  opacity: 0;
+}
+.hero-laptop-fragment-one { margin: -1.4rem 0 0 -1.2rem; }
+.hero-laptop-fragment-two { margin: 0.2rem 0 0 0.8rem; transform: rotate(18deg); }
+.hero-laptop-fragment-three { margin: 1.2rem 0 0 -0.2rem; transform: rotate(-12deg); }
 .hero-drag-indicator {
   position: absolute;
   z-index: 2;

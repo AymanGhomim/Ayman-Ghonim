@@ -5,7 +5,7 @@
  */
 
 export type ProjectRole = "UI/UX Design" | "Front-End Development";
-export type ProjectCategory = "UI/UX Design" | "Front-End Dev" | "Full Stack";
+export type ProjectCategory = "UI/UX Design" | "Front-End Dev";
 
 export interface PortfolioProject {
   id: string;
@@ -22,6 +22,8 @@ export interface PortfolioProject {
   liveUrl?: string;
   githubUrl?: string;
   behanceUrl?: string;
+  secondaryBehanceUrl?: string;
+  secondaryBehanceLabel?: string;
   figmaUrl?: string;
   featured?: boolean;
   /* Future case-study fields — render only when provided */

@@ -9,6 +9,13 @@ export default defineConfig({
   plugins: [inspectAttr(), react()],
   server: {
     port: 3000,
+    // Windows can report EBUSY for native watchers on binary assets in public/.
+    // Polling keeps HMR reliable when images are added or updated.
+    watch: {
+      usePolling: true,
+      interval: 1000,
+      binaryInterval: 1000,
+    },
   },
   resolve: {
     alias: {

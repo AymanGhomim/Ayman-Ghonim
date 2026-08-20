@@ -21,7 +21,12 @@ The site presents the work, capabilities and working approach behind each produc
 - **Eltamalawy** — Arabic e-learning platform; UI/UX design and front-end development.
 - **PENTA-K Portfolio** — digital product studio website.
 - **CALL99 Automotive Services** — multi-role platform for Admin, Customer Service, User, Provider and Ground Team experiences.
-- Exmpex Academy, One Smash, Movie App, Bakery Website and other front-end projects.
+- **Rakan Real Estate Platform** — front-end development for a bilingual Saudi real-estate platform.
+- **UniSmart** — UI/UX design for a university mobile app and web experience.
+- **Captain Delivery Dashboard** — admin dashboard for managing delivery captains, trips, orders and performance.
+- **Souvenir Language Academy Portfolio** — bilingual portfolio website presenting the academy's identity, story, community highlights and contact channels.
+- **Szissor App** — UI/UX design for a barber booking mobile app.
+- Exmpex Academy, Movie App, Bakery Website and other front-end projects.
 
 Project content, images and links are maintained in `src/data/projects.ts`.
 

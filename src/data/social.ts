@@ -25,7 +25,7 @@ export const socialLinks: SocialLink[] = [
   {
     id: "whatsapp",
     label: "WhatsApp",
-    url: "https://wa.me/+201121476035",
-    handle: "+20 112 147 6035",
+    url: "https://wa.me/201228600736",
+    handle: "+20 122 860 0736",
   },
 ];

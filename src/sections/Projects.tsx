@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import type { PortfolioProject } from "@/types/portfolio";
 
-const projectFilters = ["All", "UI/UX Design", "Front-End Dev", "Full Stack"] as const;
+const projectFilters = ["All", "UI/UX Design", "Front-End Dev"] as const;
 type ProjectFilter = (typeof projectFilters)[number];
 
 /** Selected Work — a sequential visual journey around one scroll-driven timeline. */

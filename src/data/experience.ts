@@ -28,7 +28,7 @@ export const experience: ExperienceItem[] = [
     id: "frontend-developer",
     company: "Independent / Freelance",
     role: "Front-End Developer & UI/UX Designer",
-    period: "2022 — Present",
+    period: "2024 — Present",
     description:
       "Designing user-centered web experiences from research and wireframes through polished, responsive front-end implementation with strong usability and visual consistency.",
     technologies: ["UI/UX Design", "Figma", "React"],
