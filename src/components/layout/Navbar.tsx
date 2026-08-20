@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Languages, Menu, X } from "lucide-react";
+import { Languages, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { personal } from "@/data/personal";
 import { Magnetic } from "@/components/animation/Magnetic";
@@ -18,12 +18,26 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [language, setLanguage] = useState<SiteLanguage>("en");
+  const [lightMode, setLightMode] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.localStorage.getItem("portfolio-theme") === "light";
+  });
 
   const toggleLanguage = () => {
     const nextLanguage: SiteLanguage = language === "ar" ? "en" : "ar";
     setLanguage(nextLanguage);
     applyLocalLanguage(nextLanguage);
   };
+
+  const toggleTheme = () => setLightMode((current) => !current);
+
+  useEffect(() => {
+    const theme = lightMode ? "light" : "dark";
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    window.localStorage.setItem("portfolio-theme", theme);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", lightMode ? "#f5f7fb" : "#050505");
+  }, [lightMode]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -48,7 +62,11 @@ export function Navbar() {
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
         className="fixed inset-x-0 top-0 z-50"
         style={{
-          background: scrolled ? "rgba(5,5,5,0.72)" : "transparent",
+          background: scrolled
+            ? lightMode
+              ? "rgba(255,255,255,0.78)"
+              : "rgba(5,5,5,0.72)"
+            : "transparent",
           backdropFilter: scrolled ? "blur(14px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
           borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
@@ -79,6 +97,15 @@ export function Navbar() {
           </ul>
 
           <div className="hidden items-center gap-3 md:flex">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="theme-switch"
+              aria-label={lightMode ? "Switch to dark mode" : "Switch to light mode"}
+              title={lightMode ? "Dark mode" : "Light mode"}
+            >
+              {lightMode ? <Moon size={15} /> : <Sun size={15} />}
+            </button>
             <button
               type="button"
               onClick={toggleLanguage}
@@ -170,6 +197,15 @@ export function Navbar() {
                 <span className="language-switch-divider">/</span>
                 <span className={language === "ar" ? "is-active" : ""}>AR</span>
               </span>
+            </button>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="theme-switch mt-4"
+              aria-label={lightMode ? "Switch to dark mode" : "Switch to light mode"}
+            >
+              {lightMode ? <Moon size={16} /> : <Sun size={16} />}
+              <span>{lightMode ? "Dark mode" : "Light mode"}</span>
             </button>
           </motion.div>
         )}
