@@ -77,6 +77,27 @@ export const projects: PortfolioProject[] = [
     featured: true,
   },
   {
+    id: "royal-motors-3d",
+    title: "Royal Motors 3D Showroom",
+    categories: ["Web Design", "Web Application"],
+    technologies: [
+      "Next.js",
+      "React",
+      "Three.js",
+      "GLTF / GLB 3D Models",
+      "GSAP",
+      "Tailwind CSS",
+      "Vercel",
+    ],
+    description:
+      "An immersive 3D car showroom website designed to help customers explore vehicle categories, compare showroom services, preview exterior colors, interact with a 3D car model and book a test drive. The experience includes animated car doors, interior exploration mode, paint and wheel customization, featured Sedans, SUVs and Coupes inventory, trade-in, financing, inspection and delivery services, smooth scrolling and GSAP animations.",
+    image: "/projects/royal-motors-3d.png",
+    liveUrl: "https://cars-3-d-rose.vercel.app/",
+    roles: ["UI/UX Design", "Front-End Development"],
+    tags: ["UI/UX Design", "Front-End Dev"],
+    featured: true,
+  },
+  {
     id: "call99",
     title: "CALL99 Automotive Services",
     categories: ["Management System", "Automotive Services"],
