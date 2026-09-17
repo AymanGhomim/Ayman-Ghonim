@@ -7,6 +7,48 @@ import type { PortfolioProject } from "@/types/portfolio";
  */
 export const projects: PortfolioProject[] = [
   {
+    id: "genzo-education-platform",
+    title: "Genzo Educational Platform",
+    categories: ["Web Application", "E-Learning", "Management System"],
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Zustand",
+      "Socket.IO",
+      "REST APIs",
+    ],
+    description:
+      "A second branded experience of the same multi-role e-learning platform, redesigned for Genzo with a fresh visual identity while supporting students, teachers and administrators across courses, exams, subscriptions, payments, messaging and notifications.",
+    image: "/projects/genzo-education-platform.png",
+    liveUrl: "https://genzo-edu-platform-frontend.penta-k.com/",
+    roles: ["UI/UX Design", "Front-End Development"],
+    tags: ["UI/UX Design", "Front-End Dev"],
+    featured: true,
+  },
+  {
+    id: "kfs-higher-education",
+    title: "KFS Higher Education Platform",
+    categories: ["Web Application", "E-Learning", "Management System"],
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Zustand",
+      "Socket.IO",
+      "REST APIs",
+    ],
+    description:
+      "A full-featured bilingual e-learning platform for Kafr El Sheikh Higher Education, bringing students, teachers and administrators together to manage courses, lessons, exams, subscriptions, payments, messages and notifications in one organized experience.",
+    image: "/projects/kfs-education-platform.png",
+    liveUrl: "https://kfs-edu-dev.penta-k.com/",
+    roles: ["UI/UX Design", "Front-End Development"],
+    tags: ["UI/UX Design", "Front-End Dev"],
+    featured: true,
+  },
+  {
     id: "eltamalawy",
     title: "Eltamalawy Learning Platform",
     categories: ["Web Application", "E-Learning"],

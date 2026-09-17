@@ -635,6 +635,97 @@ button {
   }
 }
 
+/* Certificates — visual proof presented as a responsive gallery */
+.certificates-section {
+  background:
+    radial-gradient(circle at 82% 38%, rgba(37, 99, 235, 0.08), transparent 28rem),
+    var(--bg);
+}
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.85rem, 2vw, 1.5rem);
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+.certificate-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: 0 22px 48px -34px rgba(0, 0, 0, 0.8);
+  isolation: isolate;
+}
+.certificate-card img {
+  width: 100%;
+  height: 100%;
+  padding: 0.7rem;
+  object-fit: contain;
+  object-position: center;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+  transition: transform 500ms var(--ease-out-expo), filter 300ms ease;
+}
+.certificate-card-portrait img {
+  object-position: center top;
+}
+.certificate-card:hover img,
+.certificate-card:focus-visible img {
+  transform: scale(1.035);
+  filter: brightness(0.72);
+}
+.certificate-card-overlay {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  left: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.65rem;
+  background: rgba(5, 5, 5, 0.68);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+.certificate-card:hover .certificate-card-overlay,
+.certificate-card:focus-visible .certificate-card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .certificates-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .certificates-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+  .certificate-card img {
+    padding: 0.45rem;
+  }
+  .certificate-card-overlay {
+    right: 0.45rem;
+    bottom: 0.45rem;
+    left: 0.45rem;
+    padding: 0.5rem;
+    font-size: 0.56rem;
+  }
+}
+
 /* ------------------------------------------------------------------ */
 /* Background layers — subtle, never competing with content            */
 /* ------------------------------------------------------------------ */

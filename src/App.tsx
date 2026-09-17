@@ -11,6 +11,7 @@ import { Projects } from "@/sections/Projects";
 import { Experience, Education } from "@/sections/Journey";
 import { Services, Process } from "@/sections/Services";
 import { Contact } from "@/sections/Contact";
+import { Certificates } from "@/sections/Certificates";
 import { projects } from "@/data/projects";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useIsMobile } from "@/hooks/useMediaQuery";
@@ -67,6 +68,7 @@ export default function App() {
         <Projects projects={projects} />
         <Experience />
         <Education />
+        <Certificates />
         <Services />
         <Process />
         <Contact />

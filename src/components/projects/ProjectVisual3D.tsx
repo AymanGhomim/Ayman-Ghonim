@@ -99,7 +99,7 @@ export function ProjectVisual3D({ project, priority, initialDirection }: Project
           loading={priority ? "eager" : "lazy"}
           draggable={false}
           className={
-            project.id === "call99"
+            project.id === "call99" || project.id === "kfs-higher-education" || project.id === "genzo-education-platform"
               ? "project-image-contain"
               : project.id === "eltamalawy"
                 ? "object-top"
