@@ -4,8 +4,8 @@
  * and the UI updates automatically. Empty arrays hide their section.
  */
 
-export type ProjectRole = "UI/UX Design" | "Front-End Development";
-export type ProjectCategory = "UI/UX Design" | "Front-End Dev";
+export type ProjectRole = "UI/UX Design" | "Front-End Development" | "Full-Stack Development";
+export type ProjectCategory = "UI/UX Design" | "Front-End Dev" | "Full-Stack Dev";
 
 export interface PortfolioProject {
   id: string;

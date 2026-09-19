@@ -77,6 +77,18 @@ export const projects: PortfolioProject[] = [
     featured: true,
   },
   {
+    id: "penta-k-cafes-restaurants-management",
+    title: "Penta-K Cafes & Restaurants Management Platform",
+    categories: ["Web Application", "Management System"],
+    description:
+      "A full-stack cafe and restaurant management platform with a responsive admin dashboard for managing branches, subscriptions, coupons, branding and platform activity from one organized workspace.",
+    image: "/projects/penta-k-cafes-management.png",
+    liveUrl: "https://penta-k-cafes-resturant-manegment.vercel.app/platform/login",
+    roles: ["Full-Stack Development", "UI/UX Design"],
+    tags: ["Full-Stack Dev", "UI/UX Design"],
+    featured: true,
+  },
+  {
     id: "royal-motors-3d",
     title: "Royal Motors 3D Showroom",
     categories: ["Web Design", "Web Application"],
