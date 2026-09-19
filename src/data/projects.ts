@@ -7,6 +7,18 @@ import type { PortfolioProject } from "@/types/portfolio";
  */
 export const projects: PortfolioProject[] = [
   {
+    id: "penta-k-cafes-restaurants-management",
+    title: "Penta-K Cafes & Restaurants Management Platform",
+    categories: ["Web Application", "Management System"],
+    description:
+      "A full-stack cafe and restaurant management platform with a responsive admin dashboard for managing branches, subscriptions, coupons, branding and platform activity from one organized workspace.",
+    image: "/projects/penta-k-cafes-management.png",
+    liveUrl: "https://penta-k-cafes-resturant-manegment.vercel.app/platform/login",
+    roles: ["Full-Stack Development", "UI/UX Design"],
+    tags: ["Full-Stack Dev", "UI/UX Design"],
+    featured: true,
+  },
+  {
     id: "genzo-education-platform",
     title: "Genzo Educational Platform",
     categories: ["Web Application", "E-Learning", "Management System"],
@@ -74,18 +86,6 @@ export const projects: PortfolioProject[] = [
     behanceUrl: "https://www.behance.net/gallery/253954651/PENTA-K-Digital-Product-Studio-UIUX-Case-Study",
     roles: ["UI/UX Design", "Front-End Development"],
     tags: ["UI/UX Design", "Front-End Dev"],
-    featured: true,
-  },
-  {
-    id: "penta-k-cafes-restaurants-management",
-    title: "Penta-K Cafes & Restaurants Management Platform",
-    categories: ["Web Application", "Management System"],
-    description:
-      "A full-stack cafe and restaurant management platform with a responsive admin dashboard for managing branches, subscriptions, coupons, branding and platform activity from one organized workspace.",
-    image: "/projects/penta-k-cafes-management.png",
-    liveUrl: "https://penta-k-cafes-resturant-manegment.vercel.app/platform/login",
-    roles: ["Full-Stack Development", "UI/UX Design"],
-    tags: ["Full-Stack Dev", "UI/UX Design"],
     featured: true,
   },
   {
