@@ -43,7 +43,7 @@ export const projects: PortfolioProject[] = [
     description:
       "A full-featured bilingual e-learning platform for Kafr El Sheikh Higher Education, bringing students, teachers and administrators together to manage courses, lessons, exams, subscriptions, payments, messages and notifications in one organized experience.",
     image: "/projects/kfs-education-platform.png",
-    liveUrl: "https://kfs-edu-dev.penta-k.com/",
+    liveUrl: "https://kfs-edu.penta-k.com",
     roles: ["UI/UX Design", "Front-End Development"],
     tags: ["UI/UX Design", "Front-End Dev"],
     featured: true,
