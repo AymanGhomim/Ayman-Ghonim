@@ -7,6 +7,18 @@ import type { PortfolioProject } from "@/types/portfolio";
  */
 export const projects: PortfolioProject[] = [
   {
+    id: "engaz-dashboard",
+    title: "Engaz Services Dashboard",
+    categories: ["Web Application", "Management System"],
+    description:
+      "A bilingual admin dashboard for managing Engaz requests and operations in one focused workspace, with a clear workflow for day-to-day service management.",
+    image: "/projects/engaz-dashboard.png",
+    liveUrl: "https://dash.engaz-services.online/",
+    roles: ["UI/UX Design", "Front-End Development"],
+    tags: ["UI/UX Design", "Front-End Dev"],
+    featured: true,
+  },
+  {
     id: "penta-k-cafes-restaurants-management",
     title: "Penta-K Cafes & Restaurants Management Platform",
     categories: ["Web Application", "Management System"],
