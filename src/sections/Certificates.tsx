@@ -5,6 +5,11 @@ import { Reveal } from "@/components/animation/Reveal";
 
 const certificates = [
   {
+    src: "/certificate/see-academy-nodejs-backend.jpg",
+    alt: "SEE Academy Backend Web Development Using Node.js certificate",
+    orientation: "landscape",
+  },
+  {
     src: "/certificate/WhatsApp Image 2026-09-17 at 6.15.26 PM.jpeg",
     alt: "Certificate 1",
     orientation: "landscape",
