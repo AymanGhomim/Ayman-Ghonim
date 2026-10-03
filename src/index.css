@@ -1236,7 +1236,8 @@ button {
 .project-showcase-actions a:first-child {
   border-color: #d7ff3f;
   background: #d7ff3f;
-  color: #fff;
+  color: var(--accent-ink);
+  font-weight: 700;
   box-shadow: 0 10px 28px -16px rgba(215, 255, 63, 0.7);
 }
 .project-showcase-actions a:hover {
@@ -1532,16 +1533,6 @@ button {
   outline: 2px solid rgba(233, 255, 112, 0.9);
   outline-offset: 3px;
 }
-.language-switch-icon {
-  display: grid;
-  width: 1.55rem;
-  height: 1.55rem;
-  place-items: center;
-  border: 1px solid rgba(233, 255, 112, 0.36);
-  border-radius: 50%;
-  color: #ffb585;
-  background: rgba(215, 255, 63, 0.14);
-}
 .language-switch-options {
   position: relative;
   display: inline-flex;
@@ -1660,7 +1651,7 @@ html[data-theme="light"] .project-showcase-actions a {
 html[data-theme="light"] .project-showcase-actions a:first-child {
   border-color: var(--accent-from);
   background: var(--accent-from);
-  color: #fff;
+  color: var(--accent-ink);
 }
 html[data-theme="light"] .projects-filter-pill:hover,
 html[data-theme="light"] .projects-filter-pill:focus-visible {
@@ -2796,7 +2787,8 @@ html[data-theme="light"] .hero-btn-secondary {
 .project-detail-actions a.is-primary {
   border-color: #d7ff3f;
   background: #d7ff3f;
-  color: #fff;
+  color: var(--accent-ink);
+  font-weight: 700;
 }
 .project-detail-actions a.is-primary:hover {
   background: #b9e62d;

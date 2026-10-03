@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Languages, Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { personal } from "@/data/personal";
@@ -118,9 +118,6 @@ export function Navbar() {
               aria-checked={language === "ar"}
               aria-label={language === "ar" ? "Switch to English" : "Switch to Arabic"}
             >
-              <span className="language-switch-icon" aria-hidden>
-                <Languages size={14} />
-              </span>
               <span className="language-switch-options" aria-hidden>
                 <span>EN</span>
                 <span>AR</span>
@@ -197,9 +194,6 @@ export function Navbar() {
               aria-checked={language === "ar"}
               aria-label={language === "ar" ? "Switch to English" : "Switch to Arabic"}
             >
-              <span className="language-switch-icon" aria-hidden>
-                <Languages size={15} />
-              </span>
               <span className="language-switch-options" aria-hidden>
                 <span>EN</span>
                 <span>AR</span>
