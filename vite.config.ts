@@ -22,4 +22,27 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          const normalizedId = id.replaceAll("\\", "/");
+          if (!normalizedId.includes("/node_modules/")) return undefined;
+
+          if (normalizedId.includes("/framer-motion/") || normalizedId.includes("/lenis/")) {
+            return "animation-vendor";
+          }
+          if (normalizedId.includes("/lucide-react/")) return "icons-vendor";
+          if (
+            normalizedId.includes("/react/") ||
+            normalizedId.includes("/react-dom/") ||
+            normalizedId.includes("/react-router/")
+          ) {
+            return "react-vendor";
+          }
+          return undefined;
+        },
+      },
+    },
+  },
 });
