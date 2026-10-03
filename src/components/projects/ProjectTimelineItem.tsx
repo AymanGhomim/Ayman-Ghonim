@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
+import { Link } from "react-router";
 import { ProjectVisual3D } from "@/components/projects/ProjectVisual3D";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import type { PortfolioProject } from "@/types/portfolio";
@@ -51,6 +52,9 @@ export function ProjectTimelineItem({ project, index, priority }: ProjectTimelin
           )}
 
           <div className="project-showcase-actions">
+            <Link to={`/projects/${project.id}`}>
+              View Project Details <ArrowUpRight size={14} />
+            </Link>
             {project.liveUrl && (
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 View Live Site <ArrowUpRight size={14} />
@@ -86,8 +90,8 @@ export function ProjectTimelineItem({ project, index, priority }: ProjectTimelin
         whileInView={{
           scale: 1.08,
           borderColor: "rgba(96,165,250,0.85)",
-          backgroundColor: "#0b1b36",
-          color: "#bfdbfe",
+          backgroundColor: "var(--accent-from)",
+          color: "var(--accent-ink)",
           boxShadow: "0 0 0 7px rgba(7,10,16,0.86), 0 0 22px rgba(37,99,235,0.2)",
         }}
         viewport={{ once: false, amount: 0.65, margin: "-22% 0px -22% 0px" }}

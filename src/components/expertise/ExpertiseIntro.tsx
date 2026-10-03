@@ -31,7 +31,7 @@ export function ExpertiseIntro() {
       >
         <motion.span variants={line} className="block">Design thinking.</motion.span>
         <motion.span variants={line} className="block">
-          Production <em className="not-italic text-[#60a5fa]">code.</em>
+          Production <em className="not-italic text-[var(--accent-from)]">code.</em>
         </motion.span>
       </motion.h2>
       <motion.p

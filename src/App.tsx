@@ -1,5 +1,6 @@
 import Lenis from "lenis";
 import { useEffect } from "react";
+import { Navigate, Route, Routes } from "react-router";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
@@ -15,6 +16,7 @@ import { Certificates } from "@/sections/Certificates";
 import { projects } from "@/data/projects";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useIsMobile } from "@/hooks/useMediaQuery";
+import { ProjectDetail } from "@/pages/ProjectDetail";
 
 export default function App() {
   const reduced = useReducedMotion();
@@ -62,16 +64,27 @@ export default function App() {
       <ScrollProgress />
       <Navbar />
       <main>
-        <Hero />
-        <About />
-        <Expertise />
-        <Projects projects={projects} />
-        <Experience />
-        <Education />
-        <Certificates />
-        <Services />
-        <Process />
-        <Contact />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <About />
+                <Expertise />
+                <Projects projects={projects} />
+                <Experience />
+                <Education />
+                <Certificates />
+                <Services />
+                <Process />
+                <Contact />
+              </>
+            }
+          />
+          <Route path="/projects/:projectId" element={<ProjectDetail />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
       <Footer />
     </div>

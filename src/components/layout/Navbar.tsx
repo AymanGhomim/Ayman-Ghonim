@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Languages, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import { personal } from "@/data/personal";
 import { Magnetic } from "@/components/animation/Magnetic";
 import { applyLocalLanguage, type SiteLanguage } from "@/i18n/localTranslation";
@@ -16,6 +17,7 @@ const NAV_ITEMS = [
 
 /** Minimal navbar — transparent at top, blurred with hairline on scroll. */
 export function Navbar() {
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [language, setLanguage] = useState<SiteLanguage>("en");
@@ -31,13 +33,14 @@ export function Navbar() {
   };
 
   const toggleTheme = () => setLightMode((current) => !current);
+  const homeHref = (href: string) => location.pathname === "/" ? href : `/${href}`;
 
   useEffect(() => {
     const theme = lightMode ? "light" : "dark";
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
     window.localStorage.setItem("portfolio-theme", theme);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", lightMode ? "#f5f7fb" : "#050505");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", lightMode ? "#f6f7ee" : "#090b08");
   }, [lightMode]);
 
   useEffect(() => {
@@ -76,7 +79,7 @@ export function Navbar() {
       >
         <nav className="container-x flex h-[72px] items-center justify-between" aria-label="Main">
           <a
-            href="#top"
+            href={location.pathname === "/" ? "#top" : "/"}
             className="font-display text-lg font-semibold tracking-tight"
             aria-label={`${personal.name} — home`}
           >
@@ -88,7 +91,7 @@ export function Navbar() {
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <a
-                  href={item.href}
+                  href={homeHref(item.href)}
                   className="link-underline font-mono text-[0.72rem] uppercase tracking-[0.18em] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
                 >
                   {item.label}
@@ -110,20 +113,22 @@ export function Navbar() {
             <button
               type="button"
               onClick={toggleLanguage}
-              className="language-switch"
+              className={`language-switch ${language === "ar" ? "is-ar" : "is-en"}`}
+              role="switch"
+              aria-checked={language === "ar"}
               aria-label={language === "ar" ? "Switch to English" : "Switch to Arabic"}
             >
               <span className="language-switch-icon" aria-hidden>
                 <Languages size={14} />
               </span>
               <span className="language-switch-options" aria-hidden>
-                <span className={language === "en" ? "is-active" : ""}>EN</span>
-                <span className="language-switch-divider">/</span>
-                <span className={language === "ar" ? "is-active" : ""}>AR</span>
+                <span>EN</span>
+                <span>AR</span>
+                <span className="language-switch-thumb" />
               </span>
             </button>
             <Magnetic strength={0.2}>
-              <a href="#contact" className="btn-ghost !px-5 !py-2.5 text-sm">
+              <a href={homeHref("#contact")} className="btn-ghost !px-5 !py-2.5 text-sm">
                 Let’s Talk
               </a>
             </Magnetic>
@@ -159,7 +164,7 @@ export function Navbar() {
                   transition={{ delay: 0.08 + i * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <a
-                    href={item.href}
+                    href={homeHref(item.href)}
                     onClick={() => setOpen(false)}
                     className="group flex items-baseline gap-4 py-3"
                   >
@@ -187,16 +192,18 @@ export function Navbar() {
                 toggleLanguage();
                 setOpen(false);
               }}
-              className="language-switch mt-6"
+              className={`language-switch mt-6 ${language === "ar" ? "is-ar" : "is-en"}`}
+              role="switch"
+              aria-checked={language === "ar"}
               aria-label={language === "ar" ? "Switch to English" : "Switch to Arabic"}
             >
               <span className="language-switch-icon" aria-hidden>
                 <Languages size={15} />
               </span>
               <span className="language-switch-options" aria-hidden>
-                <span className={language === "en" ? "is-active" : ""}>EN</span>
-                <span className="language-switch-divider">/</span>
-                <span className={language === "ar" ? "is-active" : ""}>AR</span>
+                <span>EN</span>
+                <span>AR</span>
+                <span className="language-switch-thumb" />
               </span>
             </button>
             <button

@@ -64,7 +64,7 @@ export function Cursor() {
         {label && (
           <span
             className="font-mono text-[10px] font-medium tracking-[0.18em]"
-            style={{ color: "#050505" }}
+            style={{ color: "var(--accent-ink)" }}
           >
             {label}
           </span>

@@ -40,6 +40,16 @@ export const education: EducationItem[] = [
     topics: ["Node.js", "Backend Development", "Server-side Applications"],
   },
   {
+    id: "see-academy-react-frontend",
+    institution: "SEE Academy",
+    title: "Front-End Web Development Diploma (React JS)",
+    period: "2026",
+    description:
+      "Completed a five-month front-end web development diploma focused on building responsive interfaces with React JS.",
+    details: ["Score: 98.5%", "Duration: 5 months", "Completed: 16 July 2026"],
+    topics: ["React JS", "Front-End Development", "Responsive Interfaces"],
+  },
+  {
     id: "creativa-uiux",
     institution: "Creativa Innovation Hub (NTI)",
     title: "UI/UX Design Track",
