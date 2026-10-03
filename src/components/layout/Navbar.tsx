@@ -40,7 +40,7 @@ export function Navbar() {
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
     window.localStorage.setItem("portfolio-theme", theme);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", lightMode ? "#f6f7ee" : "#090b08");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", lightMode ? "#f5f1e8" : "#0c0c0b");
   }, [lightMode]);
 
   useEffect(() => {
