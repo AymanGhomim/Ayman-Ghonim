@@ -26,10 +26,7 @@ export function HeroLaptop() {
   const rotateY = useSpring(rawRotateY, { stiffness: 150, damping: 22, mass: 0.55 });
 
   useEffect(() => {
-    if (reducedMotion) {
-      setPhase("assembled");
-      return;
-    }
+    if (reducedMotion) return;
 
     const introTimer = window.setTimeout(() => setPhase("assembled"), 1500);
     const cycleTimer = window.setInterval(() => {
@@ -123,7 +120,9 @@ export function HeroLaptop() {
         <motion.div
           className="hero-laptop-3d"
           animate={
-            phase === "assembling"
+            reducedMotion
+              ? { opacity: 1, scale: 1, y: 0, rotateZ: 0 }
+              : phase === "assembling"
               ? { opacity: 0, scale: 0.78, y: 26, rotateZ: -8 }
               : phase === "disassembling"
                 ? { opacity: 0.94, scale: 0.97, y: -4, rotateZ: -2 }

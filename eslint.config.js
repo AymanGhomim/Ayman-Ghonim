@@ -20,4 +20,19 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+  {
+    files: [
+      'src/components/ui/badge.tsx',
+      'src/components/ui/button-group.tsx',
+      'src/components/ui/button.tsx',
+      'src/components/ui/form.tsx',
+      'src/components/ui/navigation-menu.tsx',
+      'src/components/ui/sidebar.tsx',
+      'src/components/ui/toggle.tsx',
+    ],
+    rules: {
+      // These shared primitives intentionally export both components and styling helpers.
+      'react-refresh/only-export-components': 'off',
+    },
+  },
 ])
