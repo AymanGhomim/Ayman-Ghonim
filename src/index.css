@@ -349,7 +349,8 @@ button {
 .hero-btn-primary {
   border: 1px solid #d7ff3f;
   background: #d7ff3f;
-  color: #fff;
+  color: var(--accent-ink);
+  font-weight: 700;
   box-shadow: 0 12px 38px -18px rgba(215, 255, 63, 0.7);
 }
 .hero-btn-secondary {
