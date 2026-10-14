@@ -1064,8 +1064,15 @@ button {
   justify-content: space-between;
   gap: 1.25rem;
 }
-.projects-carousel-toolbar { margin-bottom: 1.5rem; }
+.projects-carousel-toolbar {
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 1rem;
+  text-align: center;
+}
 .projects-carousel-total { color: var(--accent-from); }
+.projects-carousel-heading { margin-bottom: 1rem; }
 .projects-carousel-navigation { display: flex; gap: 0.65rem; }
 .projects-carousel-arrow {
   display: grid;
@@ -1089,7 +1096,7 @@ button {
      not offset Embla's centered transform. */
   overflow: clip;
   touch-action: pan-y pinch-zoom;
-  padding: 1.25rem 0 3.5rem;
+  padding: 1.25rem 0 1.5rem;
   cursor: grab;
 }
 .projects-carousel-viewport:active { cursor: grabbing; }
@@ -1197,9 +1204,26 @@ button {
   .projects-carousel { --carousel-overlap: -12%; --carousel-side-scale: 0.48; }
   .projects-carousel-slide { flex-basis: 50%; }
 }
+/* Small screens get one readable card; the three-card depth remains on desktop. */
+@media (max-width: 900px) {
+  .projects-carousel { --carousel-overlap: 0%; }
+  .projects-carousel-slide { flex-basis: 100%; }
+  .projects-carousel-slide.is-previous .projects-carousel-card-layer,
+  .projects-carousel-slide.is-next .projects-carousel-card-layer { opacity: 0; }
+  .projects-carousel-preview-control { display: none; }
+  .project-carousel-card .project-showcase-visual {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: 18rem;
+    background: var(--bg-soft);
+  }
+  .project-carousel-card .project-showcase-visual img,
+  .project-carousel-card .project-showcase-visual img.project-image-contain {
+    object-fit: cover;
+    background: var(--bg-soft);
+  }
+}
 @media (max-width: 699px) {
-  .projects-carousel { --carousel-overlap: -32%; }
-  .projects-carousel-slide { flex-basis: 86%; }
   .projects-carousel-hint { display: none; }
   .projects-carousel-footer { gap: 1rem; }
 }
@@ -3060,7 +3084,7 @@ footer p { overflow-wrap: anywhere; }
   .hero-social-icon,
   .social-icon-link { width: 2.75rem; height: 2.75rem; }
   .projects-carousel-toolbar { gap: 0.5rem; }
-  .projects-carousel-toolbar .label-mono { letter-spacing: 0.1em; font-size: 0.65rem; }
+  .projects-carousel-heading { letter-spacing: 0.1em; font-size: 0.65rem; }
   .projects-carousel-viewport { padding-bottom: 2rem; }
   .project-carousel-card .project-showcase-heading { gap: 0.45rem; }
   .project-carousel-card .project-showcase-categories { font-size: 0.6rem; letter-spacing: 0.04em; }

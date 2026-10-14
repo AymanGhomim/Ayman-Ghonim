@@ -54,21 +54,9 @@ function ProjectCarousel({ projects }: { projects: PortfolioProject[] }) {
   return (
     <div className="projects-carousel" role="region" aria-roledescription="carousel"
       aria-label="Selected projects" tabIndex={0} onKeyDown={handleKeyDown}>
-      <div className="projects-carousel-toolbar">
-        <p className="label-mono">Selected projects <span className="projects-carousel-total">/ {projects.length}</span></p>
-        <div className="projects-carousel-navigation">
-          <button type="button" className="projects-carousel-arrow" aria-label="Previous projects"
-            aria-controls="projects-carousel-track" disabled={!navigation.previous}
-            onClick={() => api?.scrollPrev(reducedMotion)}>
-            <ArrowLeft size={20} aria-hidden />
-          </button>
-          <button type="button" className="projects-carousel-arrow" aria-label="Next projects"
-            aria-controls="projects-carousel-track" disabled={!navigation.next}
-            onClick={() => api?.scrollNext(reducedMotion)}>
-            <ArrowRight size={20} aria-hidden />
-          </button>
-        </div>
-      </div>
+      <p className="label-mono projects-carousel-heading">
+        Selected projects <span className="projects-carousel-total">/ {projects.length}</span>
+      </p>
       <div className="projects-carousel-viewport" ref={viewportRef} dir="ltr">
         <div className="projects-carousel-track" id="projects-carousel-track">
           {projects.map((project, index) => {
@@ -93,6 +81,20 @@ function ProjectCarousel({ projects }: { projects: PortfolioProject[] }) {
               </div>
             );
           })}
+        </div>
+      </div>
+      <div className="projects-carousel-toolbar">
+        <div className="projects-carousel-navigation">
+          <button type="button" className="projects-carousel-arrow" aria-label="Previous projects"
+            aria-controls="projects-carousel-track" disabled={!navigation.previous}
+            onClick={() => api?.scrollPrev(reducedMotion)}>
+            <ArrowLeft size={20} aria-hidden />
+          </button>
+          <button type="button" className="projects-carousel-arrow" aria-label="Next projects"
+            aria-controls="projects-carousel-track" disabled={!navigation.next}
+            onClick={() => api?.scrollNext(reducedMotion)}>
+            <ArrowRight size={20} aria-hidden />
+          </button>
         </div>
       </div>
       <div className="projects-carousel-footer">
