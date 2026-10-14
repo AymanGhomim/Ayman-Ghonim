@@ -53,10 +53,10 @@ export function Cursor() {
           width: label ? 74 : hovering ? 44 : 14,
           height: label ? 74 : hovering ? 44 : 14,
           backgroundColor: label
-            ? "rgba(247,247,248,0.96)"
+            ? "var(--accent-from)"
             : hovering
-              ? "rgba(37,99,235,0.15)"
-              : "rgba(247,247,248,0.9)",
+              ? "var(--accent-soft)"
+              : "var(--text-primary)",
         }}
         transition={{ type: "spring", stiffness: 400, damping: 28 }}
         style={{ mixBlendMode: label ? "normal" : "difference" }}

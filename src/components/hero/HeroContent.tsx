@@ -83,7 +83,7 @@ export function HeroContent() {
             </li>
           ))}
         </ul>
-        <span className="hidden h-4 w-px bg-white/10 sm:block" aria-hidden />
+        <span className="hidden h-4 w-px bg-[var(--border)] sm:block" aria-hidden />
         <a href={personal.cvUrl} download className="hero-social-link inline-flex items-center gap-2">
           <Download size={13} />
           Résumé

@@ -17,15 +17,16 @@ interface ProjectVisual3DProps {
   project: PortfolioProject;
   priority?: boolean;
   initialDirection: number;
+  interactive?: boolean;
 }
 
-export function ProjectVisual3D({ project, priority, initialDirection }: ProjectVisual3DProps) {
+export function ProjectVisual3D({ project, priority, initialDirection, interactive = true }: ProjectVisual3DProps) {
   const reducedMotion = useReducedMotion();
   const [dragging, setDragging] = useState(false);
   const origin = useRef<DragOrigin | null>(null);
   const dragged = useRef(false);
-  const rawRotateX = useMotionValue(reducedMotion ? 0 : -2.5);
-  const rawRotateY = useMotionValue(reducedMotion ? 0 : initialDirection * 3.5);
+  const rawRotateX = useMotionValue(reducedMotion || !interactive ? 0 : -2.5);
+  const rawRotateY = useMotionValue(reducedMotion || !interactive ? 0 : initialDirection * 3.5);
   const rotateX = useSpring(rawRotateX, { stiffness: 170, damping: 24, mass: 0.5 });
   const rotateY = useSpring(rawRotateY, { stiffness: 170, damping: 24, mass: 0.5 });
   const visualUrl = project.liveUrl ?? project.behanceUrl;
@@ -86,11 +87,12 @@ export function ProjectVisual3D({ project, priority, initialDirection }: Project
       whileHover={reducedMotion ? undefined : { scale: 1.012, y: -3 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
       data-dragging={dragging}
-      data-cursor={reducedMotion ? (visualUrl ? "VIEW" : undefined) : "DRAG"}
-      onPointerDown={startDrag}
-      onPointerMove={moveVisual}
-      onPointerUp={stopDrag}
-      onPointerCancel={stopDrag}
+      data-interactive={interactive}
+      data-cursor={!interactive ? undefined : reducedMotion ? (visualUrl ? "VIEW" : undefined) : "DRAG"}
+      onPointerDown={interactive ? startDrag : undefined}
+      onPointerMove={interactive ? moveVisual : undefined}
+      onPointerUp={interactive ? stopDrag : undefined}
+      onPointerCancel={interactive ? stopDrag : undefined}
     >
       <div className="project-showcase-visual">
         <img
@@ -115,9 +117,9 @@ export function ProjectVisual3D({ project, priority, initialDirection }: Project
       <div
         className="project-visual-link"
         role="img"
-        tabIndex={0}
-        aria-label={`Interactive 3D preview of ${project.title}. Drag with the mouse or use the arrow keys to rotate it.`}
-        onKeyDown={rotateWithKeyboard}
+        tabIndex={interactive ? 0 : undefined}
+        aria-label={interactive ? `Interactive 3D preview of ${project.title}. Drag with the mouse or use the arrow keys to rotate it.` : `Preview of ${project.title}`}
+        onKeyDown={interactive ? rotateWithKeyboard : undefined}
       >
         {visual}
       </div>
@@ -130,9 +132,9 @@ export function ProjectVisual3D({ project, priority, initialDirection }: Project
       target="_blank"
       rel="noopener noreferrer"
       className="project-visual-link"
-      aria-label={`Open ${project.title}. Drag with the mouse or use the arrow keys to rotate the preview.`}
-      onKeyDown={rotateWithKeyboard}
-      onClick={preventOpenAfterDrag}
+      aria-label={interactive ? `Open ${project.title}. Drag with the mouse or use the arrow keys to rotate the preview.` : `Open ${project.title}`}
+      onKeyDown={interactive ? rotateWithKeyboard : undefined}
+      onClick={interactive ? preventOpenAfterDrag : undefined}
     >
       {visual}
     </a>

@@ -42,7 +42,7 @@ export function Contact() {
     <section id="contact" className="section-y relative overflow-hidden">
       <div
         className="glow-spot left-1/2 top-0 h-[380px] w-[680px] -translate-x-1/2"
-        style={{ background: "rgba(37,99,235,0.09)" }}
+        style={{ background: "var(--accent-soft-warm)" }}
       />
       <div className="container-x relative z-10">
         <SectionHeader index="08" label="Contact" title="Have an idea? Let’s design it — then build it." />
@@ -178,12 +178,12 @@ export function Contact() {
                 </Magnetic>
 
                 {status === "sent" && (
-                  <p className="inline-flex items-center gap-2 text-sm text-emerald-400" role="status">
+                  <p className="inline-flex items-center gap-2 text-sm text-[rgb(var(--success-rgb))]" role="status">
                     <CheckCircle2 size={15} /> Message sent — I’ll get back to you soon.
                   </p>
                 )}
                 {status === "error" && (
-                  <p className="text-sm text-red-400" role="alert">
+                  <p className="text-sm text-[rgb(var(--error-rgb))]" role="alert">
                     Something went wrong — email me directly at{" "}
                     <a href={`mailto:${personal.email}`} className="underline">{personal.email}</a>
                   </p>

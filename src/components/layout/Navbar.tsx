@@ -38,9 +38,10 @@ export function Navbar() {
   useEffect(() => {
     const theme = lightMode ? "light" : "dark";
     document.documentElement.dataset.theme = theme;
+    document.documentElement.classList.toggle("dark", !lightMode);
     document.documentElement.style.colorScheme = theme;
     window.localStorage.setItem("portfolio-theme", theme);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", lightMode ? "#f5f1e8" : "#0c0c0b");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", getComputedStyle(document.documentElement).getPropertyValue("--bg").trim());
   }, [lightMode]);
 
   useEffect(() => {
@@ -58,6 +59,25 @@ export function Navbar() {
     };
   }, [open]);
 
+  // A resized desktop viewport must not retain the mobile scroll lock.
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1280px)");
+    const onDesktop = (event: MediaQueryListEvent) => {
+      if (event.matches) setOpen(false);
+    };
+    desktop.addEventListener("change", onDesktop);
+    return () => desktop.removeEventListener("change", onDesktop);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   return (
     <>
       <motion.header
@@ -67,9 +87,7 @@ export function Navbar() {
         className="fixed inset-x-0 top-0 z-50"
         style={{
           background: scrolled
-            ? lightMode
-              ? "rgba(255,255,255,0.78)"
-              : "rgba(5,5,5,0.72)"
+            ? "var(--nav-surface)"
             : "transparent",
           backdropFilter: scrolled ? "blur(14px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
@@ -87,7 +105,7 @@ export function Navbar() {
             <span className="text-gradient">.</span>
           </a>
 
-          <ul className="hidden items-center gap-9 md:flex">
+          <ul className="hidden items-center gap-6 xl:flex">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <a
@@ -100,7 +118,7 @@ export function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-3 xl:flex">
             <button
               type="button"
               onClick={toggleTheme}
@@ -132,7 +150,7 @@ export function Navbar() {
           </div>
 
           <button
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-hover)] md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-hover)] xl:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
@@ -150,7 +168,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 flex flex-col justify-center bg-[rgba(5,5,5,0.96)] px-8 backdrop-blur-xl md:hidden"
+            className="mobile-navigation fixed inset-0 z-40 flex flex-col bg-[var(--menu-surface)] backdrop-blur-xl xl:hidden"
           >
             <ul className="flex flex-col gap-2">
               {NAV_ITEMS.map((item, i) => (
@@ -168,7 +186,7 @@ export function Navbar() {
                     <span className="font-mono text-xs text-[var(--text-muted)]">
                       0{i + 1}
                     </span>
-                    <span className="font-display text-4xl font-medium tracking-tight transition-colors group-hover:text-[var(--accent-from)]">
+                    <span className="mobile-navigation-label font-display font-medium tracking-tight transition-colors group-hover:text-[var(--accent-from)]">
                       {item.label}
                     </span>
                   </a>
@@ -179,7 +197,7 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.45 }}
-              className="label-mono mt-12"
+              className="label-mono mt-6"
             >
               {personal.title}
             </motion.p>
