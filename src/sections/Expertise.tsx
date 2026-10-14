@@ -21,6 +21,7 @@ const primaryDevelopment = [
   "JavaScript (ES6+)",
   "REST APIs",
   "Redux / Redux Toolkit",
+  "Node.js Fundamentals",
 ] as const;
 
 /** Expertise — two disciplines presented as one connected workflow. */

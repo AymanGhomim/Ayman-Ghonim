@@ -52,6 +52,16 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
+    id: "backend-foundations",
+    title: "Development — Backend Foundations",
+    side: "development",
+    skills: [
+      "Node.js Fundamentals",
+      "Backend Development Basics",
+      "Server-side Applications",
+    ],
+  },
+  {
     id: "styling",
     title: "Development — Styling & UI",
     side: "development",

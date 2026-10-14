@@ -13,6 +13,7 @@ export const personal = {
   about: [
     "I'm Ayman Ghonim, a Front-End Developer and UI/UX Designer based in Cairo, Egypt. I enjoy turning complex ideas into clear digital experiences that feel natural to use.",
     "My approach is grounded in clarity, consistency and careful attention to responsive behavior, performance and the details people notice while using a product.",
+    "I also have foundational knowledge of backend development with Node.js, gained through a 120-hour training program at SEE Academy focused on server-side applications.",
   ],
   professionalSummary:
     "Junior Frontend Developer specializing in React.js with hands-on experience building responsive and user-friendly web applications. Strong knowledge of JavaScript (ES6+), component-based architecture, and API integration. Passionate about applying UI/UX principles to deliver clean, efficient, and visually appealing interfaces.",

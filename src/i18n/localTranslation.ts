@@ -1,6 +1,9 @@
 export type SiteLanguage = "en" | "ar";
 
 const translations: Record<string, string> = {
+  "I also have foundational knowledge of backend development with Node.js, gained through a 120-hour training program at SEE Academy focused on server-side applications.": "لدي أيضًا معرفة بأساسيات تطوير الباك إند باستخدام Node.js، اكتسبتها من تدريب لمدة 120 ساعة في SEE Academy ركّز على بناء تطبيقات من جهة الخادم.",
+  "Node.js Fundamentals": "أساسيات Node.js",
+  "Backend Development Basics": "أساسيات تطوير الباك إند",
   About: "نبذة عني",
   Expertise: "الخبرات",
   Work: "الأعمال",
