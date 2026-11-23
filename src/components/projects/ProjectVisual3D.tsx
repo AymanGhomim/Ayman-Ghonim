@@ -18,9 +18,10 @@ interface ProjectVisual3DProps {
   priority?: boolean;
   initialDirection: number;
   interactive?: boolean;
+  laptopMockup?: boolean;
 }
 
-export function ProjectVisual3D({ project, priority, initialDirection, interactive = true }: ProjectVisual3DProps) {
+export function ProjectVisual3D({ project, priority, initialDirection, interactive = true, laptopMockup = false }: ProjectVisual3DProps) {
   const reducedMotion = useReducedMotion();
   const [dragging, setDragging] = useState(false);
   const origin = useRef<DragOrigin | null>(null);
@@ -94,20 +95,25 @@ export function ProjectVisual3D({ project, priority, initialDirection, interacti
       onPointerUp={interactive ? stopDrag : undefined}
       onPointerCancel={interactive ? stopDrag : undefined}
     >
-      <div className="project-showcase-visual">
-        <img
-          src={project.image}
-          alt={`${project.title} — project screenshot`}
-          loading={priority ? "eager" : "lazy"}
-          draggable={false}
-          className={
-            project.id === "call99" || project.id === "engaz-dashboard" || project.id === "kfs-higher-education" || project.id === "genzo-education-platform" || project.id === "royal-motors-3d"
-              ? "project-image-contain"
-              : project.id === "eltamalawy"
-                ? "object-top"
-                : "object-center"
-          }
-        />
+      <div className={laptopMockup ? "project-laptop-mockup" : undefined}>
+        <div className={laptopMockup ? "project-laptop-screen" : undefined}>
+          <div className="project-showcase-visual">
+            <img
+              src={project.image}
+              alt={`${project.title} — project screenshot`}
+              loading={priority ? "eager" : "lazy"}
+              draggable={false}
+              className={
+                project.id === "call99" || project.id === "engaz-dashboard" || project.id === "kfs-higher-education" || project.id === "genzo-education-platform" || project.id === "royal-motors-3d"
+                  ? "project-image-contain"
+                  : project.id === "eltamalawy"
+                    ? "object-top"
+                    : "object-center"
+              }
+            />
+          </div>
+        </div>
+        {laptopMockup && <div className="project-laptop-base" aria-hidden="true" />}
       </div>
     </motion.div>
   );

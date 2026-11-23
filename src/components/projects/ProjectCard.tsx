@@ -26,6 +26,7 @@ export function ProjectCard({ project, index, priority }: ProjectCardProps) {
         priority={priority}
         initialDirection={0}
         interactive={false}
+        laptopMockup
       />
 
       <div className="project-showcase-content">
