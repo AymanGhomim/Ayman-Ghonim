@@ -41,7 +41,7 @@ export function ExpertiseIntro() {
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: reducedMotion ? 0.01 : 0.65, delay: reducedMotion ? 0 : 0.22, ease: [0.16, 1, 0.3, 1] }}
       >
-        I shape the interface, build the frontend and carry the same intent through to the finished product.
+        I design and build across the stack—from responsive React interfaces to API integration and Node.js backend foundations.
       </motion.p>
     </div>
   );

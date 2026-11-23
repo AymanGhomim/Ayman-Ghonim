@@ -2,7 +2,7 @@ import { Stagger, StaggerItem } from "@/components/animation/Reveal";
 import { personal } from "@/data/personal";
 
 const details = [
-  { label: "Focus", value: "Frontend Development / UI/UX Design" },
+  { label: "Focus", value: "Full-Stack Development / UI/UX Design" },
   { label: "Based in", value: personal.location },
   { label: "Stack", value: "React / Next.js / TypeScript / Figma" },
 ] as const;

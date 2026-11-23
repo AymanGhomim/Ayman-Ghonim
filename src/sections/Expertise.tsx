@@ -63,7 +63,7 @@ export function Expertise() {
             index="02"
             label="Development"
             title="I bring it to life."
-            description="I translate the design into maintainable frontend code with reliable state, APIs and responsive behavior."
+            description="I build responsive React interfaces, connect REST APIs and bring backend foundations with Node.js into the product workflow."
             capabilities={primaryDevelopment}
             onActivate={setActive}
             delay={0.1}

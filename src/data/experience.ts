@@ -21,7 +21,7 @@ export const experience: ExperienceItem[] = [
     location: "Kafr El Sheikh, Egypt",
     period: "Jun 2026 — Present",
     description:
-      "Building responsive digital products across front-end development and interface design, while collaborating with design and back-end teams to deliver clear, user-focused experiences.",
+      "Building responsive React interfaces and shaping UI/UX for digital products, while collaborating with design and back-end teams to connect API-driven features into clear, user-focused experiences.",
     technologies: ["React.js", "HTML5", "UI/UX Design"],
   },
   {
@@ -30,7 +30,7 @@ export const experience: ExperienceItem[] = [
     role: "Front-End Developer & UI/UX Designer",
     period: "2024 — Present",
     description:
-      "Designing user-centered web experiences from research and wireframes through polished, responsive front-end implementation with strong usability and visual consistency.",
+      "Taking freelance products from user flows and UI/UX design through responsive React implementation, REST API integration and polished delivery; applying Node.js backend foundations where the project requires server-side work.",
     technologies: ["UI/UX Design", "Figma", "React"],
   },
 ];

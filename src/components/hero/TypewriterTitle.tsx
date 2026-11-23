@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
-const firstLine = "Front-End Developer";
+const firstLine = "Full-Stack Developer";
 const secondLine = "& UI/UX Designer.";
 const fullText = `${firstLine}\n${secondLine}`;
 
