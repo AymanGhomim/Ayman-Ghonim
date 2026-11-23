@@ -1143,16 +1143,13 @@ button {
 }
 .project-carousel-card {
   height: auto;
-  padding: clamp(0.9rem, 1.5vw, 1.15rem);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-  transition: border-color 250ms ease;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
-.project-carousel-card:hover { border-color: var(--border-hover); }
 .project-carousel-card .project-showcase-heading {
-  min-height: 0;
-  margin-bottom: 0.75rem;
+  display: none;
 }
 .project-carousel-card .project-showcase-3d { cursor: grab; }
 .project-carousel-card .project-laptop-mockup {
@@ -1220,14 +1217,23 @@ button {
   display: flex;
   flex: none;
   flex-direction: column;
-  margin-top: 0.85rem;
-  padding-top: 0.85rem;
+  align-items: center;
+  margin: 1.1rem auto 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
 }
 .project-carousel-card .project-showcase-content h3 {
   font-size: clamp(1.25rem, 1.8vw, 1.7rem);
   overflow-wrap: anywhere;
 }
+.project-carousel-card .project-showcase-role,
+.project-carousel-card .project-showcase-stack {
+  text-align: center;
+}
 .project-carousel-card .project-showcase-description {
+  max-width: 42rem;
+  margin-inline: auto;
   -webkit-line-clamp: 3;
   font-size: 0.9rem;
   line-height: 1.6;
@@ -1235,6 +1241,7 @@ button {
 .project-carousel-card .project-showcase-actions {
   margin-top: 1rem;
   padding-top: 0;
+  justify-content: center;
 }
 .projects-carousel-footer { margin-top: 1.75rem; }
 .projects-carousel-footer .label-mono { white-space: nowrap; letter-spacing: 0.12em; }
